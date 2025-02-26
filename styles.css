@@ -105,3 +105,71 @@ footer {
     margin-top: 20px;
     font-size: 0.9rem;
 }
+
+/* Modo Oscuro */
+body.modo-oscuro {
+    background-color: #222;
+    color: #fff;
+}
+
+body.modo-oscuro header,
+body.modo-oscuro nav,
+body.modo-oscuro footer {
+    background-color: #333;
+}
+
+.modo-oscuro-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #6d28d9;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Menú Responsive */
+.menu-btn {
+    display: none;
+    background: #6d28d9;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #6d28d9;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50px;
+        padding: 10px;
+    }
+
+    nav ul.mostrar-menu {
+        display: flex;
+    }
+}
+
+/* Resaltado de sección activa */
+nav a.active {
+    border-bottom: 2px solid white;
+}
+
