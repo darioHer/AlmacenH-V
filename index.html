@@ -3,85 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AlmacenH&V - Ropa de calidad para mujeres. Encuentra las últimas tendencias en moda femenina.">
-    <meta name="keywords" content="moda femenina, ropa para mujeres, tendencias, vestidos, blusas, pantalones">
-    <meta name="author" content="AlmacenH&V">
-    <title>AlmacenH&V - Moda Femenina</title>
+    <title>AlmacenH&V - Moda para Mujeres</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Encabezado -->
     <header>
-        <div class="container">
-            <h1>AlmacenH&V</h1>
-            <p>Ropa de calidad para mujeres</p>
-        </div>
-    </header>
-
-    <!-- Menú de navegación -->
-    <nav aria-label="Menú principal">
-        <div class="container">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
+        <h1>AlmacenH&V</h1>
+        <button id="modo-oscuro-btn" class="modo-oscuro-btn">🌙 Modo Oscuro</button>
+        <button class="menu-btn" id="menu-btn">☰ Menú</button>
+        <nav>
+            <ul id="menu">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Contenido principal -->
-    <main class="container">
-        <section id="inicio" class="seccion">
-            <div class="contenido">
-                <h2>Bienvenida a AlmacenH&V</h2>
-                <p>Descubre nuestra colección exclusiva de ropa femenina. Elegancia, comodidad y estilo en un solo lugar.</p>
-            </div>
+    <main>
+        <section id="inicio">
+            <h2>Bienvenida a AlmacenH&V</h2>
+            <p>Ofrecemos ropa de calidad para mujeres con diseños exclusivos y elegantes.</p>
         </section>
 
-        <section id="catalogo" class="seccion">
-            <div class="contenido">
-                <h2>Catálogo</h2>
-                <p>Explora nuestra variedad de productos diseñados para cada ocasión.</p>
-                <div class="grid-catalogo">
-                    <div class="item">
-                        <h3>Vestidos elegantes</h3>
-                        <p>Encuentra el vestido perfecto para cada evento.</p>
-                    </div>
-                    <div class="item">
-                        <h3>Blusas modernas</h3>
-                        <p>Comodidad y estilo en una sola prenda.</p>
-                    </div>
-                    <div class="item">
-                        <h3>Pantalones cómodos</h3>
-                        <p>Diseños versátiles para cualquier ocasión.</p>
-                    </div>
-                    <div class="item">
-                        <h3>Accesorios únicos</h3>
-                        <p>Complementa tu outfit con lo mejor en moda.</p>
-                    </div>
-                </div>
-            </div>
+        <section id="productos">
+            <h2>Nuestros Productos</h2>
+            <p>Descubre nuestra última colección de moda.</p>
         </section>
 
-        <section id="nosotros" class="seccion">
-            <div class="contenido">
-                <h2>Sobre Nosotros</h2>
-                <p>Somos una tienda apasionada por la moda femenina, comprometidos con ofrecer ropa de la mejor calidad y diseño.</p>
-            </div>
+        <section id="nosotros">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos una tienda apasionada por la moda femenina de alta calidad.</p>
         </section>
 
-        <section id="contacto" class="seccion">
-            <div class="contenido">
-                <h2>Contacto</h2>
-                <p>¿Tienes preguntas? Escríbenos y estaremos felices de ayudarte.</p>
-                <p>Email: <a href="mailto:contacto@almacenhyv.com">contacto@almacenhyv.com</a></p>
-                <p>Teléfono: +57 123 456 7890</p>
-            </div>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Contáctanos para más información sobre nuestros productos y envíos.</p>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 AlmacenH&V - Moda para Mujeres</p>
+    </footer>
+
     <script src="script.js"></script>
-
-
 </body>
 </html>

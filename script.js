@@ -1,55 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 🌙 Modo oscuro/claro
-    const btnModoOscuro = document.createElement("button");
-    btnModoOscuro.textContent = "🌙 Modo Oscuro";
-    btnModoOscuro.classList.add("modo-oscuro-btn");
-    document.body.appendChild(btnModoOscuro);
+document.addEventListener("DOMContentLoaded", function () {
+    const btnModoOscuro = document.getElementById("modo-oscuro-btn");
+    const btnMenu = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+    const body = document.body;
+    const navLinks = document.querySelectorAll("nav a");
 
-    btnModoOscuro.addEventListener("click", () => {
-        document.body.classList.toggle("modo-oscuro");
-        if (document.body.classList.contains("modo-oscuro")) {
-            btnModoOscuro.textContent = "☀️ Modo Claro";
-            localStorage.setItem("modo", "oscuro");
+    // Verificar la preferencia de modo oscuro
+    if (localStorage.getItem("modo-oscuro") === "activado") {
+        activarModoOscuro();
+    }
+
+    btnModoOscuro.addEventListener("click", function () {
+        if (body.classList.contains("modo-oscuro")) {
+            desactivarModoOscuro();
         } else {
-            btnModoOscuro.textContent = "🌙 Modo Oscuro";
-            localStorage.setItem("modo", "claro");
+            activarModoOscuro();
         }
     });
 
-    // Guardar la preferencia del usuario
-    if (localStorage.getItem("modo") === "oscuro") {
-        document.body.classList.add("modo-oscuro");
+    btnMenu.addEventListener("click", function () {
+        menu.classList.toggle("mostrar-menu");
+    });
+
+    function activarModoOscuro() {
+        body.classList.add("modo-oscuro");
+        localStorage.setItem("modo-oscuro", "activado");
         btnModoOscuro.textContent = "☀️ Modo Claro";
+        actualizarContrasteLinks(true);
     }
 
-    // 📌 Menú Responsive
-    const nav = document.querySelector("nav ul");
-    const menuBtn = document.createElement("button");
-    menuBtn.textContent = "☰ Menú";
-    menuBtn.classList.add("menu-btn");
-    document.querySelector("nav").prepend(menuBtn);
+    function desactivarModoOscuro() {
+        body.classList.remove("modo-oscuro");
+        localStorage.setItem("modo-oscuro", "desactivado");
+        btnModoOscuro.textContent = "🌙 Modo Oscuro";
+        actualizarContrasteLinks(false);
+    }
 
-    menuBtn.addEventListener("click", () => {
-        nav.classList.toggle("mostrar-menu");
-    });
-
-    // 🔽 Desplazamiento suave en los enlaces de navegación
-    document.querySelectorAll("nav a").forEach(enlace => {
-        enlace.addEventListener("click", (e) => {
-            e.preventDefault();
-            const seccion = document.querySelector(enlace.getAttribute("href"));
-            seccion.scrollIntoView({ behavior: "smooth" });
+    function actualizarContrasteLinks(modoOscuroActivado) {
+        navLinks.forEach(link => {
+            link.style.color = modoOscuroActivado ? "#FFD700" : "";
         });
-    });
+    }
 
-    // 🎯 Resaltar sección activa mientras se hace scroll
-    const secciones = document.querySelectorAll("section");
-    window.addEventListener("scroll", () => {
-        let scrollPos = window.scrollY + 100;
-        secciones.forEach(sec => {
-            if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
-                document.querySelector("nav a.active")?.classList.remove("active");
-                document.querySelector(`nav a[href="#${sec.id}"]`).classList.add("active");
+    // Resaltar sección activa en el menú
+    window.addEventListener("scroll", function () {
+        let fromTop = window.scrollY + 100;
+
+        navLinks.forEach(link => {
+            let section = document.querySelector(link.getAttribute("href"));
+
+            if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                navLinks.forEach(link => link.classList.remove("active"));
+                link.classList.add("active");
             }
         });
     });
